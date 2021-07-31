@@ -18,7 +18,7 @@ class FoodType (db.Model) :
 #  unit ( string )("calories")
 # date (data type date)
 
-class Food():
+class Food(db.Model):
     id = db.Column ( db.Integer , primary_key=True )
     foodType = db.Column ( db.String ( 50 ) ,db.ForeignKey('FoodType.type'), nullable=False )
     calories_intake=db.Column(db.Integer)
@@ -28,6 +28,8 @@ class Food():
 
 
 
+db.create_all()
+db.init_app ( app )
 
 
 
@@ -86,20 +88,5 @@ class Food():
 #     comments=db.Column(db.String(200))
 #
 
-db.create_all()
-db.init_app ( app )
-# #     created_by = db.Column(db.Activity, db.ForeignKey('Activity.id'), nullable=False)
-# #     shared_with = db.relationship('Activity', secondary=shared_with, lazy='subquery', backref=db.backref('user', lazy=True))
-#
-# # shared_with = db.Table('shared_with',
-# #     db.Column('work_item_id', db.Integer, db.ForeignKey('work_item.id'), primary_key=True),
-# #     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True)
-# # )
-
-# Using the above sample write the DB models here
 
 
-# create all tables and initialize app
-
-# db.create_all()
-print ( "hello" )
